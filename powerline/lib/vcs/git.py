@@ -129,6 +129,9 @@ try:
 
 		def branch(self):
 			return get_branch_name(self.directory)
+
+		def head(self, path=None):
+			return git.Repository(self.directory).repo.revparse_single('HEAD')[:8]
 except ImportError:
 	from subprocess import Popen, PIPE
 
@@ -180,3 +183,6 @@ except ImportError:
 
 		def branch(self):
 			return get_branch_name(self.directory)
+
+		def head(self, path=None):
+			return next(self._gitcmd(self.directory, 'rev-parse', '--short', 'HEAD'))

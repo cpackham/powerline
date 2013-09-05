@@ -29,6 +29,9 @@
 				"name": "branch"
 			},
 			{
+				"name": "head"
+			},
+			{
 				"name": "cwd",
 				"args": {
 					"dir_limit_depth": 3
